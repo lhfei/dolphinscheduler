@@ -18,18 +18,20 @@
   <div class="login-model">
     <div class="text-1">
       <a href="javascript:"></a>
+      <span>数据管理平台</span>
     </div>
     <div class="form-model">
       <div class="list">
-        <label>{{$t('User Name')}}</label>
+        <!-- <label>{{$t('User Name')}}</label> -->
         <div>
           <el-input
-                  id="inputUsername"
-                  type="text"
-                  v-model.trim="userName"
-                  :placeholder="$t('Please enter user name')"
-                  maxlength="60"
-                  @keyup.enter.native="_ok">
+            id="inputUsername"
+            type="text"
+            v-model.trim="userName"
+            :placeholder="$t('Please enter user name')"
+            maxlength="60"
+            @keyup.enter.native="_ok"
+          >
           </el-input>
         </div>
         <p class="error" v-if="isUserName">
@@ -37,15 +39,16 @@
         </p>
       </div>
       <div class="list">
-        <label>{{$t('Password')}}</label>
+        <!-- <label>{{$t('Password')}}</label> -->
         <div>
           <el-input
-                  id="inputPassword"
-                  type="password"
-                  v-model="userPassword"
-                  :placeholder="$t('Please enter your password')"
-                  maxlength="20"
-                  @keyup.enter.native="_ok">
+            id="inputPassword"
+            type="password"
+            v-model="userPassword"
+            :placeholder="$t('Please enter your password')"
+            maxlength="20"
+            @keyup.enter.native="_ok"
+          >
           </el-input>
         </div>
         <p class="error" v-if="isUserPassword">
@@ -53,7 +56,16 @@
         </p>
       </div>
       <div class="list" style="margin-top: 10px;">
-        <el-button id="btnLogin" style="width: 365px" type="primary" round :loading="spinnerLoading" long @click="_ok">{{spinnerLoading ? $t('Loading...') : ` ${$t('Login')} `}} </el-button>
+        <el-button
+          id="btnLogin"
+          style="width: 365px"
+          type="primary"
+          :loading="spinnerLoading"
+          long
+          @click="_ok"
+        >
+          {{spinnerLoading ? $t('Loading...') : ` ${$t('Login')} `}}
+        </el-button>
       </div>
     </div>
   </div>
@@ -91,11 +103,12 @@
                 cookies.set('sessionId', sessionId, { path: '/' })
               }
 
-              if (this.userName === 'admin') {
-                window.location.href = `${PUBLIC_PATH}/#/security/tenant`
-              } else {
-                window.location.href = `${PUBLIC_PATH}/#/home`
-              }
+              window.location.href = `${PUBLIC_PATH}/#/home`
+              // if (this.userName === 'admin') {
+              //   window.location.href = `${PUBLIC_PATH}/#/security/tenant`
+              // } else {
+              //   window.location.href = `${PUBLIC_PATH}/#/home`
+              // }
             }, 1000)
           }).catch(e => {
             this.userPasswordText = e.msg
@@ -150,7 +163,7 @@
   .login-model {
     width: 400px;
     min-height: 260px;
-    background: #fff;
+    background: #2d3a4b;
     border-radius: 3px;
     position: fixed;
     left:50%;
@@ -158,16 +171,21 @@
     margin-left: -200px;
     margin-top: -200px;
     z-index: 1;
-    box-shadow: 0px 2px 25px 0px rgba(0, 0, 0, .3);
+    // box-shadow: 0px 2px 25px 0px rgba(0, 0, 0, .3);
     .text-1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
       padding-top: 30px;
+      padding-right: 30px;
       margin-bottom: -6px;
       a {
-        width: 280px;
+        width: 220px;
         height: 60px;
         display: block;
-        background: url("img/login-logo.svg") no-repeat 23px;
-        margin: 0 auto;
+        background: url("img/logo-DataLink-light.svg") no-repeat 23px;
+        // margin: 0 auto;
       }
     }
     .form-model {
@@ -180,12 +198,17 @@
           height: 24px;
           line-height: 24px;
           font-weight: normal;
-          color: #333;
+          color: #fff;
         }
         >.error {
           font-size: 12px;
           color: #ff0000;
           padding-top: 6px;
+        }
+        input {
+          background: #283443;
+          border: 1px solid #3e4957;
+          color: #fff;
         }
         &:last-child {
           margin-bottom: 6px;
