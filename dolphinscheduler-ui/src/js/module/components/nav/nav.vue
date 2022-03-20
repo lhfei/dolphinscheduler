@@ -463,7 +463,7 @@
 <style lang="scss" rel="stylesheet/scss">
   .nav-model {
     height: 60px;
-    background: #2D303A;
+    background: #2b2f3a;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     position: relative;
     .m-title-box {
@@ -492,7 +492,7 @@
         width: 180px;
         height: 46px;
         display: block;
-        background: url("./logo.svg") no-repeat;
+        background: url("./logo-DataLink-light.svg") no-repeat;
       }
     }
     .nav-box {

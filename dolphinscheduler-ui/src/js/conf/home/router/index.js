@@ -57,7 +57,7 @@ router.beforeEach((to, from, next) => {
   const $body = $('body')
   $body.find('.tooltip.fade.top.in').remove()
   if (to.meta.title) {
-    document.title = `${to.meta.title} - DolphinScheduler`
+    document.title = `${to.meta.title} - Data Link`
   }
   next()
 })

@@ -120,12 +120,13 @@
     left: 0;
     top: 0;
     width: 200px;
-    background: #41444C;
+    background: #304156;
     height: calc(100%);
     padding-top: 80px;
     .toogle-box {
       position: absolute;
       right: -1px;
+      z-index: 2;
       top: calc(50% - 50px);
       .tog-close {
         width: 12px;
@@ -146,8 +147,8 @@
     .leven-1 {
       .name {
         a {
-          height: 40px;
-          line-height: 40px;
+          height: 56px;
+          line-height: 56px;
           display: block;
           position: relative;
           padding-left: 10px;
@@ -159,35 +160,38 @@
             font-size: 15px;
             width: 20px;
             text-align: center;
-            color: #fff;
+            color: #bfcbd9;
           }
           >span {
             vertical-align: middle;
             padding-left: 2px;
             font-size: 14px;
-            color: #fff;
+            color: #bfcbd9;
           }
           >.angle {
             position: absolute;
             right: 12px;
-            top: 12px;
+            top: 20px;
+            color: #bfcbd9;
           }
-
+          &:hover {
+            background: #263445;
+          }
         }
       }
       ul {
         li {
-          height: 36px;
-          line-height: 36px;
+          height: 50px;
+          line-height: 50px;
           cursor: pointer;
           padding-left: 39px;
-          color: #fff;
+          color: #bfcbd9;
           a {
             font-size: 14px;
           }
           &.active {
             border-right: 2px solid #2d8cf0;
-            background: #2C2F39;
+            // background: #2C2F39;
             span {
               font-weight: bold;
               color: #2d8cf0;
@@ -198,15 +202,15 @@
       >.router-link-exact-active,.router-link-active {
         background: #f0f6fb;
         .name {
-          border-right: 2px solid #2d8cf0;
-          background: #2B2E38;
+          border-right: 2px solid #409eff;
+          // background: #2B2E38;
           a {
             span {
-              color: #2d8cf0;
+              color: #409eff;
               font-weight: bold;
             }
             .fa {
-              color: #2d8cf0;
+              color: #409eff;
             }
           }
         }
