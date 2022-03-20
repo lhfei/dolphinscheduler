@@ -24,7 +24,7 @@ const home = [
     name: 'home',
     component: resolve => require(['../../pages/home'], resolve),
     meta: {
-      title: `${i18n.$t('Home')} - DolphinScheduler`,
+      title: `${i18n.$t('Home')} - Data Link`,
       refreshInSwitchedTab: config.refreshInSwitchedTab
     }
   }
