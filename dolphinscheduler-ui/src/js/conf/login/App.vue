@@ -103,11 +103,12 @@
                 cookies.set('sessionId', sessionId, { path: '/' })
               }
 
-              if (this.userName === 'admin') {
-                window.location.href = `${PUBLIC_PATH}/#/security/tenant`
-              } else {
-                window.location.href = `${PUBLIC_PATH}/#/home`
-              }
+              window.location.href = `${PUBLIC_PATH}/#/home`
+              // if (this.userName === 'admin') {
+              //   window.location.href = `${PUBLIC_PATH}/#/security/tenant`
+              // } else {
+              //   window.location.href = `${PUBLIC_PATH}/#/home`
+              // }
             }, 1000)
           }).catch(e => {
             this.userPasswordText = e.msg

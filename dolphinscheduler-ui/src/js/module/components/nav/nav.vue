@@ -36,9 +36,12 @@
       </div>
       <div class="clearfix list">
         <div class="nav-links">
-          <router-link :to="{ path: '/dataquality'}" tag="a" active-class="active">
+          <a class="disabled" title="试用版 功能未开放">
             <span><em class="ansiconfont el-icon-document-checked"></em>{{$t('DataQuality')}}</span><strong></strong>
-          </router-link>
+          </a>
+          <!-- <router-link :to="{ path: '/dataquality'}" tag="a" active-class="active">
+            <span><em class="ansiconfont el-icon-document-checked"></em>{{$t('DataQuality')}}</span><strong></strong>
+          </router-link> -->
         </div>
       </div>
       <div class="clearfix list">
@@ -56,17 +59,27 @@
         </div>
       </div>
       <div class="clearfix list">
-        <div class="nav-links">
-          <router-link :to="{ path: '/monitor'}" tag="a" active-class="active">
+        <div class="nav-links disabled">
+          <a class="disabled" title="试用版 功能未开放">
             <span><em class="ansiconfont el-icon-monitor"></em>{{$t('Monitor')}}</span><strong></strong>
-          </router-link>
+          </a>
+          <!-- <router-link :to="{ path: '/monitor'}" tag="a" active-class="active">
+            <span><em class="ansiconfont el-icon-monitor"></em>{{$t('Monitor')}}</span><strong></strong>
+          </router-link> -->
         </div>
       </div>
       <div class="clearfix list" >
         <div class="nav-links">
-          <router-link :to="{ path: '/security'}" tag="a" active-class="active" v-ps="['ADMIN_USER']" id="tabSecurity">
+          <a class="disabled" title="试用版 功能未开放">
+            <span>
+              <em class="ansfont ri-shield-check-line"></em>
+              {{$t('Security')}}
+            </span>
+            <strong></strong>
+          </a>
+          <!-- <router-link :to="{ path: '/security'}" tag="a" active-class="active" v-ps="['ADMIN_USER']" id="tabSecurity">
             <span><em class="ansfont ri-shield-check-line"></em>{{$t('Security')}}</span><strong></strong>
-          </router-link>
+          </router-link> -->
         </div>
       </div>
     </div>
@@ -86,10 +99,10 @@
           <em class="el-icon-user-solid"></em>{{userInfo.userName}}<em class="el-icon-arrow-down"></em>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item command="user">
+          <!-- <el-dropdown-item command="user">
             <em class="el-icon-user"></em>
             <span>{{$t('User Information')}}</span>
-          </el-dropdown-item>
+          </el-dropdown-item> -->
           <el-dropdown-item  command="logout">
             <em class="el-icon-switch-button"></em>
             <span>{{$t('Logout')}}</span>
@@ -138,7 +151,12 @@
               <em class="ansfont ri-database-2-line"></em>
               <span>{{$t('Datasource manage')}}</span>
             </router-link>
-            <router-link :to="{ path: '/security'}" tag="li" active-class="active" v-ps="['ADMIN_USER']">
+            <router-link
+              :to="{ path: '/security'}"
+              tag="li"
+              active-class="active"
+              v-ps="['ADMIN_USER']"
+            >
               <em class="ansfont ri-shield-check-line"></em>
               <span>{{$t('Security')}}</span>
             </router-link>
@@ -489,17 +507,18 @@
       top: 8px;
       cursor: pointer;
       >a {
-        width: 180px;
+        width: 257px;
         height: 46px;
         display: block;
-        background: url("./logo-DataLink-light.svg") no-repeat;
+        background: url("./logo-shuntian.png") no-repeat;
+        background-size: 100% 100%;
       }
     }
     .nav-box {
       height: 60px;
       line-height: 60px;
       position: absolute;
-      left: 220px;
+      left: 320px;
       top: 0;
       .list {
         width: 106px;
@@ -535,6 +554,11 @@
             &:hover {
               span {
                 color: #2d8cf0;
+              }
+            }
+            &.disabled {
+              span {
+                color: gray;
               }
             }
             &.active {
