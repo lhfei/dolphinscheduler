@@ -82,6 +82,17 @@
           </router-link> -->
         </div>
       </div>
+      <div class="clearfix list" >
+        <div class="nav-links">
+          <router-link :to="{ path: '/temp'}" tag="a" active-class="active" v-ps="['ADMIN_USER']" id="tabSecurity">
+            <span>
+              <em class="ansfont ri-links-line"></em>
+              数据接入
+            </span>
+            <strong></strong>
+          </router-link>
+        </div>
+      </div>
     </div>
     <div class="right">
       <span class="lang">
@@ -507,7 +518,7 @@
       top: 8px;
       cursor: pointer;
       >a {
-        width: 257px;
+        width: 370px;
         height: 46px;
         display: block;
         background: url("./logo-shuntian.png") no-repeat;
@@ -518,7 +529,7 @@
       height: 60px;
       line-height: 60px;
       position: absolute;
-      left: 320px;
+      left: 420px;
       top: 0;
       .list {
         width: 106px;
