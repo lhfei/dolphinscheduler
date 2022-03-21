@@ -25,6 +25,7 @@ import resource from './module/resource'
 import security from './module/security'
 import user from './module/user'
 import dataquality from './module/dataquality'
+import temp from './module/tempIFrame'
 
 Vue.use(Router)
 
@@ -44,7 +45,8 @@ const router = new Router({
     ...dataquality,
     ...security,
     ...user,
-    ...monitor
+    ...monitor,
+    ...temp
   ]
 })
 
