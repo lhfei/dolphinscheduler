@@ -29,6 +29,8 @@ import dataquality from './module/dataquality'
 Vue.use(Router)
 
 const router = new Router({
+  base: window.__POWERED_BY_QIANKUN__ ? '/datalink/' : '/',
+  mode: 'history',
   routes: [
     {
       path: '/',

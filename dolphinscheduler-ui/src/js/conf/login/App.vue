@@ -92,9 +92,9 @@
               }
 
               if (this.userName === 'admin') {
-                window.location.href = `${PUBLIC_PATH}/#/security/tenant`
+                window.location.href = `${PUBLIC_PATH}/security/tenant`
               } else {
-                window.location.href = `${PUBLIC_PATH}/#/home`
+                window.location.href = `${PUBLIC_PATH}/home`
               }
             }, 1000)
           }).catch(e => {

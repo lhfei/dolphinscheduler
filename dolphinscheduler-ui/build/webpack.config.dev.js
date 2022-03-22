@@ -50,7 +50,10 @@ const config = merge.smart(baseConfig, {
     stats: {
       colors: true
     },
-    clientLogLevel: 'warning'
+    clientLogLevel: 'warning',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   },
   plugins: [
     new ProgressPlugin(),
