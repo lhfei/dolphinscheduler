@@ -208,7 +208,7 @@ const baseConfig = {
         loader: 'url-loader',
         options: {
           esModule: false,
-          limit: 10000,
+          // limit: 10000
           // publicPath: distDir,
           name: 'font/[name].[hash:7].[ext]'
         }
