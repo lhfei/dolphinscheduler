@@ -16,7 +16,7 @@
  */
 <template>
   <div class="main-layout-model">
-    <div class="m-top" v-if="showTop">
+    <div class="m-top" v-show="showTop">
       <slot name="top"></slot>
     </div>
     <div class="m-bottom">
