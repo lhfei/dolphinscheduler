@@ -19,6 +19,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 // import $ from 'jquery'
 import 'babel-polyfill'
+import '@/conf/public-path'
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
@@ -35,25 +36,84 @@ Vue.config.devtools = true
 Vue.config.productionTip = true
 Vue.config.silent = true
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  render: h => h(App),
-  mounted () {
-  },
-  methods: {
-    initApp () {
-      const bootstrapTooltip = $.fn.tooltip.noConflict()
-      $.fn.tooltip = bootstrapTooltip
-      $('body').tooltip({
-        selector: '[data-toggle="tooltip"]',
-        trigger: 'hover'
-      })
-      // Component internationalization
-      i18n.init()
-    }
-  },
-  created () {
-    this.initApp()
+// 声明一个变量，可以用于卸载
+let instance = null
+
+// 挂载到自己的html中，基座会拿到这个挂载后的html插入进去
+function render (props = {}) {
+  const { container, onGlobalStateChange, initialState } = props
+  const currentUser = initialState && initialState.currentUser
+  console.log(currentUser)
+
+  // store.dispatch('theme/getColor', currentTheme?.theme?.primaryColor || '');
+  if (onGlobalStateChange) {
+    onGlobalStateChange((state, prev) => {
+      // state: 变更后的状态; prev 变更前的状态
+      console.log(state, prev)
+      // store.dispatch('theme/getColor', state?.color || '')
+    })
   }
-})
+
+  /* eslint-disable no-new */
+  instance = new Vue({
+    render: h => h(App),
+    mounted () {
+    },
+    methods: {
+      initApp () {
+        const bootstrapTooltip = $.fn.tooltip.noConflict()
+        $.fn.tooltip = bootstrapTooltip
+        $('body').tooltip({
+          selector: '[data-toggle="tooltip"]',
+          trigger: 'hover'
+        })
+        // Component internationalization
+        i18n.init()
+      }
+    },
+    created () {
+      this.initApp()
+    }
+  }).$mount(container ? container.querySelector('#app') : '#app')
+}
+/* eslint-disable no-new */
+// new Vue({
+//   el: '#app',
+//   render: h => h(App),
+//   mounted () {
+//   },
+//   methods: {
+//     initApp () {
+//       const bootstrapTooltip = $.fn.tooltip.noConflict()
+//       $.fn.tooltip = bootstrapTooltip
+//       $('body').tooltip({
+//         selector: '[data-toggle="tooltip"]',
+//         trigger: 'hover'
+//       })
+//       // Component internationalization
+//       i18n.init()
+//     }
+//   },
+//   created () {
+//     this.initApp()
+//   }
+// })
+
+// 独立运行
+if (!window.__POWERED_BY_QIANKUN__) {
+  render()
+}
+
+// 子组件的协议，必须暴露三个函数
+export async function bootstrap (props) {
+  console.log('bootstrap函数：', props)
+}
+export async function mount (props) {
+  console.log('mount函数：', props)
+  render(props)
+}
+export async function unmount (props) {
+  console.log('unmount函数：', props)
+  instance.$destroy()
+  instance = null
+}

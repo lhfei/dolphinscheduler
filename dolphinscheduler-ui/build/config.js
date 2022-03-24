@@ -29,6 +29,8 @@ const assetsDir = resolve('src')
 const distDir = resolve('dist')
 const viewDir = resolve('src/view')
 
+const { name } = require('../package.json')
+
 
 function moduleName (modules) {
   let filename = path.basename(modules)
@@ -121,7 +123,10 @@ const baseConfig = {
   output: {
     path: distDir,
     publicPath: '/',
-    filename: 'js/[name].[chunkhash:7]'+version+'.js'
+    filename: 'js/[name].[chunkhash:7]'+version+'.js',
+    library: `${name}`,
+    libraryTarget: 'umd', // 把微应用打包成 umd 库格式
+    jsonpFunction: `webpackJsonp_${name}`
   },
   module: {
     rules: [
@@ -178,7 +183,12 @@ const baseConfig = {
                     "ie >= 8"
                   ]
                 }),
-                require('cssnano')
+                require('cssnano'),
+                // require('postcss-plugin-namespace')('.data-link-child-app', {
+                //   // ignore: [
+                //   //   /^\.el-.*/
+                //   // ]
+                // })
               ]
             }
           },
@@ -198,7 +208,7 @@ const baseConfig = {
         loader: 'url-loader',
         options: {
           esModule: false,
-          limit: 10000,
+          // limit: 10000
           // publicPath: distDir,
           name: 'font/[name].[hash:7].[ext]'
         }
