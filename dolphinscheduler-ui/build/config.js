@@ -183,7 +183,12 @@ const baseConfig = {
                     "ie >= 8"
                   ]
                 }),
-                require('cssnano')
+                require('cssnano'),
+                // require('postcss-plugin-namespace')('.data-link-child-app', {
+                //   // ignore: [
+                //   //   /^\.el-.*/
+                //   // ]
+                // })
               ]
             }
           },

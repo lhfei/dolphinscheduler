@@ -82,6 +82,7 @@
     "pack": "^2.2.0",
     "portfinder": "^1.0.28",
     "postcss-loader": "^3.0.0",
+    "postcss-plugin-namespace": "^0.0.3",
     "progress-bar-webpack-plugin": "^1.12.1",
     "rimraf": "^2.6.2",
     "sass": "^1.49.9",
