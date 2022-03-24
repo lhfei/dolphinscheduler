@@ -19,7 +19,7 @@
     <div class="m-top" v-show="showTop">
       <slot name="top"></slot>
     </div>
-    <div class="m-bottom">
+    <div :class="showTop && 'm-bottom'">
       <slot name="bottom"></slot>
     </div>
   </div>
