@@ -16,17 +16,25 @@
  */
 <template>
   <div class="main-layout-model">
-    <div class="m-top">
+    <div class="m-top" v-show="showTop">
       <slot name="top"></slot>
     </div>
-    <div class="m-bottom">
+    <div :class="showTop && 'm-bottom'">
       <slot name="bottom"></slot>
     </div>
   </div>
 </template>
 <script>
   export default {
-    name: 'main-layout'
+    name: 'main-layout',
+    data () {
+      return {
+        showTop: true
+      }
+    },
+    mounted () {
+      this.showTop = !window.__POWERED_BY_QIANKUN__
+    }
   }
 </script>
 
