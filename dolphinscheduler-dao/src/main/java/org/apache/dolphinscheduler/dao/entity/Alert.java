@@ -18,6 +18,7 @@
 package org.apache.dolphinscheduler.dao.entity;
 
 import org.apache.dolphinscheduler.common.enums.AlertStatus;
+import org.apache.dolphinscheduler.common.enums.AlertType;
 import org.apache.dolphinscheduler.common.enums.WarningType;
 
 import java.util.Date;
@@ -65,7 +66,8 @@ public class Alert {
      */
     @TableField(value = "log")
     private String log;
-    /**
+
+    /**g
      * alertgroup_id
      */
     @TableField("alertgroup_id")
@@ -81,6 +83,31 @@ public class Alert {
      */
     @TableField("update_time")
     private Date updateTime;
+
+    /**
+     * project_code
+     */
+    @TableField("project_code")
+    private Long projectCode;
+
+    /**
+     * process_definition_code
+     */
+    @TableField("process_definition_code")
+    private Long processDefinitionCode;
+
+    /**
+     * process_instance_id
+     */
+    @TableField("process_instance_id")
+    private int processInstanceId;
+
+    /**
+     * alert_type
+     */
+    @TableField("alert_type")
+    private AlertType alertType;
+
     @TableField(exist = false)
     private Map<String, Object> info = new HashMap<>();
 
@@ -165,6 +192,38 @@ public class Alert {
 
     public void setWarningType(WarningType warningType) {
         this.warningType = warningType;
+    }
+
+    public Long getProjectCode() {
+        return projectCode;
+    }
+
+    public void setProjectCode(Long projectCode) {
+        this.projectCode = projectCode;
+    }
+
+    public Long getProcessDefinitionCode() {
+        return processDefinitionCode;
+    }
+
+    public void setProcessDefinitionCode(Long processDefinitionCode) {
+        this.processDefinitionCode = processDefinitionCode;
+    }
+
+    public int getProcessInstanceId() {
+        return processInstanceId;
+    }
+
+    public void setProcessInstanceId(int processInstanceId) {
+        this.processInstanceId = processInstanceId;
+    }
+
+    public AlertType getAlertType() {
+        return alertType;
+    }
+
+    public void setAlertType(AlertType alertType) {
+        this.alertType = alertType;
     }
 
     @Override
